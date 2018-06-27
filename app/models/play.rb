@@ -2,6 +2,6 @@ class Play < ApplicationRecord
   belongs_to :user
   belongs_to :category
 
-  has_attached_file :play_img, :style => { :play_index => "250x350>", :play_show => "325x475>" }, :default_url => "/images/:style/missing.png"
-  validates_attachment_content_type :play_img, :content_type => /\Aimage\/.*\Z/
+  has_attached_file :play_img, style: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+  validates_attachment_content_type :play_img, content_type: /\Aimage\/.*\z/
 end
