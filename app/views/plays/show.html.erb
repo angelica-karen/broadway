@@ -1,5 +1,4 @@
 <div class="row">
-
   <div class="col-md-4">
     <%= image_tag @play.play_img.url, class: "play-show" %>
   </div>
@@ -13,6 +12,19 @@
     </div>
   </div>
 
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="reviews">
+    <h1> Reviews </h1>
+      <%= render @play.reviews%>
+      <div>
+        <%= link_to "Add Reviews", new_play_review_path(@play), class:
+          "btn-custom" %>
+      <div>
+    </div>
+  </div>
 </div>
 
 <div class="links btn-group">
