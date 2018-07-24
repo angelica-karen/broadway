@@ -1,6 +1,14 @@
 class PlaysController < ApplicationController
 	before_action :find_play, only: [:show, :edit, :update, :destroy]
 	before_action :authenticate_user!, only: [:new, :edit]
+	before_action :play_owner, only: [:edit, :update, :destroy]
+
+	def play_owner
+     unless @play.user_id == current_user.id
+      flash[:notice] = 'Please provide the correct log-in details to update this file.'
+      redirect_to play_path
+     end
+  end
 
 	def index
 		if params[:category].blank?
